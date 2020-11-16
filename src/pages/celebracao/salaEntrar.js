@@ -27,8 +27,8 @@ export default () => {
     history.push(`/sala/${videoConferenciaState.sala}`)
   }
 
-  const voltar = () =>{
-    history.push(`/celebracao`)
+  const criarSala = () =>{
+    history.push(`/celebracao/criar`)
   }
 
   return (
@@ -45,8 +45,8 @@ export default () => {
           options={familiaridade}
         />
         <div className='btn-group'>
-          <Button color='secondary' size='block' action={()=> voltar()}>{textDefault.voltar}</Button>
-          <Button color='primary' size='block' action={()=> entrar()}>{textDefault.entrar}</Button>
+          <Button color='secondary' size='blockd' action={()=> criarSala()}>{textDefault.criarSala}</Button>
+          <Button color='primary' size='blockd' action={()=> entrar()}>{textDefault.entrar}</Button>
         </div>
       </div>
     </div>

@@ -3,13 +3,14 @@ import { CHANGE_CAMPO } from './CelebracaoActions'
 const initialState = {
   videoConferencia: {
     // sala: 'aretha-franklin',
-    dominio:  'meet.jit.si',
-    
-    sala: 'arethafranklin',
+    // nome: 'Davi R M',
     // dominio:  'transcender.de:4444',
+    
+    
+    dominio:  'meet.jit.si',
+    sala: '',
 
     nome: '',
-    // nome: 'Davi R M',
     familiaridade: { id: 'A', name: 'Amigo' },
     
     nomeHomenageado: 'Aretha Franklin',

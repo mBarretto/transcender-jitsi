@@ -91,8 +91,8 @@ export default () => {
           actionBtn={<IcoImagem />}
         />
         <div className='btn-group'>
-          <Button color='secondary' size='block' action={()=> voltar()}>{textDefault.voltar}</Button>
-          <Button color='primary' size='block' action={()=> criarSala()}>{textDefault.criar}</Button>
+          <Button color='secondary' size='blockd' action={()=> voltar()}>{textDefault.voltar}</Button>
+          <Button color='primary' size='blockd' action={()=> criarSala()}>{textDefault.criar}</Button>
         </div>
       </div>
     </div>

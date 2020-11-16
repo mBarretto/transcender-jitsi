@@ -9,7 +9,8 @@ import { AssentoMemorial } from "./assentoMemorial";
 import { history } from "../../../utils/helpers";
 import { useParams } from "react-router-dom";
 import { atualisaCampo } from "../redux/CelebracaoActions";
-import { getDistanceRatioForSeats, getWidthForSeats } from "../../../utils";
+
+import './sala.css'
 
 // Lib-jitsi-meet requires jquery as global object
 window.$ = $;
@@ -17,15 +18,6 @@ window.$ = $;
 function App() { 
   const dispath = useDispatch()
   const videoConferenciaState = useSelector(state => state.celebracaoState.videoConferencia)
-
-  const paramsUrl = useParams()
-  useEffect(()=>{
-    if (paramsUrl.sala) {
-      const target = {target:{name: 'sala', value: paramsUrl.sala}}
-      dispath(atualisaCampo(target))
-    }
-  },[paramsUrl])
-
   
   const [error, setError] = useState(null);
   const [msgs, setMsgs] = useState([]);
@@ -40,10 +32,22 @@ function App() {
   const connection = useRef(null);
   const conferenceRoom = useRef(null);
 
+  const [nomeSala, setNomeSala] = useState('arethafranklin');
 
-  const ROOM_NAME = videoConferenciaState.sala;
+  const paramsUrl = useParams()
+  useEffect(()=>{
+    if (paramsUrl.sala) {
+      const target = {target:{name: 'sala', value: paramsUrl.sala}}
+      setNomeSala( paramsUrl.sala )
+      dispath(atualisaCampo(target))
+    } else{
+      setNomeSala( videoConferenciaState.sala )
+    }
+  },[paramsUrl])
+
+
+  const ROOM_NAME = nomeSala;
   const DISPLAY_NAME = videoConferenciaState.nome ? videoConferenciaState.nome : "Participante - " + Math.floor(Date.now() / 1000);
-
   const memorialInfo = {
     nome: videoConferenciaState.nomeHomenageado, 
     data: `${videoConferenciaState.dataNascimento} - ${videoConferenciaState.dataFalecimento} `, 
@@ -397,14 +401,14 @@ function App() {
       <div className='controles-conferencia'>
           <div></div>
           <div>
-            <Button  id='btnCustomMic' color='secondary' type='btn circle' action={()=> toggleAudio()}>
+            <Button color='secondary' type='btn circle' action={()=> toggleAudio()}>
               
               {isAudioMuted ? <IcoSemMicrofone /> : <IcoMicrofone />}
             </Button>
-            <Button  id='btnHangup' color='danger' type='btn circle' action={()=> sairSala()}>
+            <Button color='danger' type='btn circle' action={()=> sairSala()}>
               <IcoTelefone />
             </Button>
-            <Button  id='btnCustomCamera' color='secondary' type='btn circle' action={()=> toggleVideo()}>
+            <Button color='secondary' type='btn circle' action={()=> toggleVideo()}>
               
               {isVideoMuted ? <IcoSemCamera /> : <IcoCamera />}
             </Button>

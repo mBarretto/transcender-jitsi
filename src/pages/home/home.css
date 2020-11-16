@@ -1,0 +1,8 @@
+.box-home{ 
+    background: url('../../assets/transcender_home_BG.jpg') center center, url('../../assets/arvores.png') center center;
+    background-size: cover, center;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    height: 100vh;   
+}
