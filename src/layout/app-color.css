@@ -1,6 +1,6 @@
 :root {
-  --primary-bg: #25a0c2;
-  --primary-bgh: #1a7b96;
+  --primary-bg: #3f8193;
+  --primary-bgh: #2a697a;
   --primary-color: #fff;
 
   --secondary-bg: #6c757d;
@@ -39,9 +39,9 @@
   --background-footer-h: #333;
   --color-footer: #fff;
 
-  --input-bg: #222;
-  --input-bgh: #666;
-  --input-color: #fff;
+  --input-bg: transparent;
+  --input-bgh: #3f8193;
+  --input-color: #3f8193;
 
   --list-bg: transparent;
   --list-bgh: #2f3031;

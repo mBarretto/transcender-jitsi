@@ -1,8 +1,31 @@
 .box-home{ 
-    background: url('../../assets/transcender_home_BG.jpg') center center, url('../../assets/arvores.png') center center;
-    background-size: cover, center;
-    align-items: center;
+    background: 
+    url('../../assets/arvores.png') center center no-repeat,
+    url('../../assets/birds.png') bottom left no-repeat,
+    url('../../assets/transcender_home_BG.jpg') center center no-repeat;
+    background-size: cover, auto, auto;
+    height: 100vh;
+    color: #3f8193;
+
     display: flex;
     justify-content: center;
-    height: 100vh;   
+    align-items: center;
+}
+.home-text{
+    max-width: 550px;
+    margin-bottom: 70px;
+    text-align: center;
+}
+.home-text h1{
+    margin: 0;
+}
+.home-text h1>img{
+    width: 100%;
+}
+.home-text h4{
+    margin-bottom: 80px;
+}
+.home-text p{
+    font-size: 22px;
+    margin-bottom: 60px;
 }

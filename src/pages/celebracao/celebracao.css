@@ -1,12 +1,30 @@
+.box-celebracao{ 
+    background: 
+    url('../../assets/arvores.png') center center no-repeat,
+    url('../../assets/birds.png') bottom left no-repeat,
+    url('../../assets/transcender_home_BG.jpg') center center no-repeat;
+    background-size: cover, auto, auto;
+    height: 100vh;
+    color: #3f8193;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 .box-celebracao{
     min-height: 100vh;
 }
 .form-sala{
+    background-color: #fff;
+    border-radius: 8px;
     max-width: 350px;
     margin: 15px auto 0 auto;
+    padding: 10px;
+    width: 100%;
 }
 .form-sala h3{
     margin-bottom: 10px;
+    text-align: center;
 }
 .form-sala .btn-group{
     display: flex;

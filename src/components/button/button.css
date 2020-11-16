@@ -1,7 +1,7 @@
 .btn {
   background-color: transparent;
   border: 1px solid transparent;
-  border-radius: 4px;
+  border-radius: 8px;
   color: var(--color-page);
   cursor: pointer;
   display: inline-block;
