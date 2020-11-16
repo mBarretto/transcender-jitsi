@@ -1,0 +1,16 @@
+
+*** These modified files were found in JOE when it aborted on Sun Jul 19 03:15:07 2020
+*** JOE was aborted because the terminal closed
+
+*** File '(Unnamed)'
+domain
+
+*** File '(Unnamed)'
+App.js
+App.js
+
+*** File '* Startup Log *'
+Processing '/etc/joe/joerc'...
+Processing '/etc/joe/ftyperc'...
+Finished processing /etc/joe/ftyperc
+Finished processing /etc/joe/joerc
