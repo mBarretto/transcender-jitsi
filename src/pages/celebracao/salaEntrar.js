@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import './celebracao.css';
 import { history } from '../../utils/helpers';
 import { useParams } from 'react-router-dom';
+import logoTranscender from '../../assets/LOGO_limpo.png';
 
 const familiaridade = [ { id: 'A', name: 'Amigo' }, { id:'F', name: 'Familiar' } ]
 
@@ -34,6 +35,9 @@ export default () => {
   return (
     <div className="box-celebracao">
       <div className='form-sala'>
+        <div className='logo-transcender'>
+          <img src={logoTranscender} title={textDefault.title} />
+        </div>
         <h3>{textDefault.tituloEntrar}</h3>
         <Input label="Sala" name='sala' action={e => dispath(atualisaCampo(e))} value={videoConferenciaState.sala} />
         <Input label="Nome"  name='nome' action={e => dispath(atualisaCampo(e))} value={videoConferenciaState.nome} />

@@ -17,6 +17,7 @@
 .form-sala{
     background-color: #fff;
     border-radius: 8px;
+    box-shadow: 0px 0px 10px 0px #1f232596;
     max-width: 350px;
     margin: 15px auto 0 auto;
     padding: 10px;
@@ -32,4 +33,13 @@
 }
 .form-sala .btn-group button{
     min-width: 150px;
+}
+.form-sala>.logo-transcender{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 200px;
+}
+.form-sala>.logo-transcender>img{
+    width: 100%;
 }

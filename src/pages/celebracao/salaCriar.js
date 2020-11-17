@@ -5,6 +5,7 @@ import { Language, Input, Button, File, Data, IcoSpinner, ActionForm, IcoImagem,
 import { useDispatch, useSelector } from 'react-redux';
 import './celebracao.css';
 import { history } from '../../utils/helpers';
+import logoTranscender from '../../assets/LOGO_limpo.png';
 
 const familiaridade = [ { id: 'A', name: 'Amigo' }, { id:'F', name: 'Familiar' } ]
 const salaDefault = {
@@ -42,6 +43,9 @@ export default () => {
   return (
     <div className="box-celebracao">
       <div className='form-sala'>
+        <div className='logo-transcender'>
+          <img src={logoTranscender} title={textDefault.title} />
+        </div>
         <h3>{textDefault.tituloCriar}</h3>
         <Input 
           label="Nome (seu)"  
