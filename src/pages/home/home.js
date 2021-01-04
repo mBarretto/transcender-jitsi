@@ -9,14 +9,14 @@ export default () => {
   const textDefault = require(`${Language()}`)
 
   const comeceSeuCerimonial = () =>{
-    history.push('/celebracao')
+    history.push('/cerimonial')
   }
   
   return (
     <div className='box-home'>
       <div className='home-text'>
         <h1>
-          <img src={logoTranscender} title={textDefault.titulo} />
+          <img src={logoTranscender} alt={textDefault.titulo} />
         </h1>
         <h4>{textDefault.subtitulo}</h4>
         <p>{textDefault.conteudo}</p>

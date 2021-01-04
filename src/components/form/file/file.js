@@ -7,7 +7,7 @@ export function File({ children, action, value = '', label, name, type = 'file',
   const changeFile = (e) =>{
 
     if (e) {
-      if (e.size < 60000) {
+      if (e.size < 200000) {
         action({target: {name: name, value: e}})
         setMsg('')
       } else{
@@ -25,7 +25,7 @@ console.log(e, 'fdljfldkjaflkdjsalfkj', e);
       <div>
         <div className='input-file-custom'>
           <input type='text' name={name} id={`id-${name}-text`} value={value.name?value.name:''} onChange={action} disabled={true} />
-          {/* <input type={type} name={name} id={`id-${name}`} files={value} onChange={(e) => changeFile(e.target.files[0])} disabled={disabled} /> */}
+          <input type={type} name={name} id={`id-${name}`} files={value} onChange={(e) => changeFile(e.target.files[0])} disabled={disabled} />
         </div>
         <div className='input-actions'>
           <ActionForm action={e => null} title={'Selecione'}>

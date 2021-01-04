@@ -36,3 +36,10 @@ ReactDOM.render(
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: https://bit.ly/CRA-PWA
 serviceWorker.unregister()
+
+// ssh -i ./transcender.pem ubuntu@transcender.de
+// cd /usr/share/jitsi-meet
+
+
+
+// scp -r -i ./transcender.pem  ubuntu@transcender.de:/usr/share/jitsi-meet .

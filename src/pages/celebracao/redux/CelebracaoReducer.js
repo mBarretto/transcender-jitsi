@@ -1,22 +1,21 @@
-import { CHANGE_CAMPO } from './CelebracaoActions'
+import { CHANGE_CAMPO, ATUALIZA_SALA, ATUALIZA_USUARIO, ATUALIZA_HOMENAGEADO } from './CelebracaoActions'
 
 const initialState = {
+  usuario: {
+    nome: '',
+    familiaridade: { id: 'A', name: 'Amigo' },
+  },
   videoConferencia: {
-    // sala: 'aretha-franklin',
-    // nome: 'Davi R M',
-    // dominio:  'transcender.de:4444',
-    
-    
     dominio:  'meet.jit.si',
     sala: '',
 
     nome: '',
     familiaridade: { id: 'A', name: 'Amigo' },
     
-    nomeHomenageado: 'Aretha Franklin',
-    dataNascimento: 1942 ,
-    dataFalecimento: 2018,
-    epitafio: 'Queen of soul',
+    nomeHomenageado: '',
+    dataNascimento: 0 ,
+    dataFalecimento: 0,
+    epitafio: '',
     foto: {}
   },
 }
@@ -25,6 +24,12 @@ export default (state = initialState, { type, payload }) => {
   switch (type) {
     case CHANGE_CAMPO:
       return { ...state, videoConferencia: { ...state.videoConferencia, [payload.target.name]: payload.target.value} }
+    case ATUALIZA_SALA:
+      return {...state, videoConferencia: payload }
+    case ATUALIZA_USUARIO:
+      return {...state, usuario: payload }
+    case ATUALIZA_HOMENAGEADO:
+      return {...state, homenageado: payload }
     default:
       return state
   }

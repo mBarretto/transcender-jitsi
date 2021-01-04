@@ -19,6 +19,7 @@
     border-radius: 10px;
     color: #545454;
     font-size: 22px;
+    line-height: 22px;
     padding: 4px 10px;
     text-align: center;
     margin-bottom: -15px;
@@ -30,6 +31,7 @@
     border: 3px solid #fff;
     border-radius: 20px;
     color: #545454;
+    line-height: 14px;
     font-size: 14px;
     padding: 4px 10px;
     text-align: center;
@@ -115,4 +117,10 @@
 .info-assento{
     position: absolute;
     bottom: 5px;
+}
+
+
+iframe{
+    height: 300px !important;
+    position: fixed;
 }

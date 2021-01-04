@@ -1,12 +1,11 @@
-/* global JitsiMeetJS config*/
-import React, { useEffect } from 'react';
-import { atualisaCampo } from './redux/CelebracaoActions';
+import React, { useEffect, useState } from 'react';
+import {  UsuarioSala } from './redux/CelebracaoActions';
 import { Language, Input, Button, RadioButton  } from '../../components';
-import { useDispatch, useSelector } from 'react-redux';
-import './celebracao.css';
+import { useDispatch } from 'react-redux';
 import { history } from '../../utils/helpers';
 import { useParams } from 'react-router-dom';
 import logoTranscender from '../../assets/LOGO_limpo.png';
+import './celebracao.css';
 
 const familiaridade = [ { id: 'A', name: 'Amigo' }, { id:'F', name: 'Familiar' } ]
 
@@ -14,22 +13,26 @@ export default () => {
   const dispath = useDispatch()
   const textDefault = require(`${Language()}`)
 
-  const videoConferenciaState = useSelector(state => state.celebracaoState.videoConferencia)
+  const [stateSala, setStateSala] = useState({sala: '', nome: '', familiaridade: { id: 'A', name: 'Amigo' },})
 
   const paramsUrl = useParams()
   useEffect(()=>{
-    if (paramsUrl.sala) {
-      const target = {target:{name: 'sala', value: paramsUrl.sala}}
-      dispath(atualisaCampo(target))
+    if (paramsUrl.sala && !stateSala.sala) {
+      setStateSala({...stateSala, sala: paramsUrl.sala})
     }
-  },[paramsUrl])
+  },[paramsUrl, stateSala])
   
   const entrar = () =>{
-    history.push(`/sala/${videoConferenciaState.sala}`)
+    localStorage.setItem('usuarioConferencia', JSON.stringify(stateSala) )
+    dispath( [ UsuarioSala(stateSala), history.push(`/sala/${stateSala.sala}`) ] )
   }
 
   const criarSala = () =>{
-    history.push(`/celebracao/criar`)
+    history.push(`/cerimonial/criar`)
+  }
+
+  const atualisaCampoState = (e) => {
+    setStateSala({...stateSala, [e.target.name]: e.target.value})
   }
 
   return (
@@ -39,18 +42,18 @@ export default () => {
           <img src={logoTranscender} title={textDefault.title} />
         </div>
         <h3>{textDefault.tituloEntrar}</h3>
-        <Input label="Sala" name='sala' action={e => dispath(atualisaCampo(e))} value={videoConferenciaState.sala} />
-        <Input label="Nome"  name='nome' action={e => dispath(atualisaCampo(e))} value={videoConferenciaState.nome} />
+        <Input label="Sala" name='sala' action={e => atualisaCampoState(e)} value={stateSala.sala} />
+        <Input label="Nome"  name='nome' action={e => atualisaCampoState(e)} value={stateSala.nome} />
         <RadioButton
           label=''
           name='familiaridade'
-          action={e => dispath(atualisaCampo(e))}
-          checked={videoConferenciaState.familiaridade}
+          action={e => atualisaCampoState(e)}
+          checked={stateSala.familiaridade}
           options={familiaridade}
         />
         <div className='btn-group'>
           <Button color='secondary' size='blockd' action={()=> criarSala()}>{textDefault.criarSala}</Button>
-          <Button color='primary' size='blockd' action={()=> entrar()}>{textDefault.entrar}</Button>
+          <Button color='primary' size='blockd' action={()=> entrar()} disabled={!stateSala.sala}>{textDefault.entrar}</Button>
         </div>
       </div>
     </div>

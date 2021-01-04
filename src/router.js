@@ -1,9 +1,7 @@
-import React, { useEffect } from 'react'
-import { Router, Route, Switch, Redirect } from 'react-router-dom'
-import { useDispatch, useSelector } from 'react-redux'
+import React from 'react'
+import { Router, Route, Switch } from 'react-router-dom'
 import { history } from './utils/helpers'
 
-// import AuthLayout from './pages/celebracao/celebracao'
 import Celebracao from './pages/celebracao/celebracao'
 import Home from './pages/home/home'
 
@@ -12,43 +10,22 @@ import SalaConferencia from './pages/celebracao/sala/sala'
 import SalaCriar from './pages/celebracao/salaCriar'
 import SalaEntrar from './pages/celebracao/salaEntrar'
 
-// const PrivateRoute = ({ component: Component }) => {
-//   const dispatch = useDispatch()
-//   const autenticado = useSelector(state => state.usuarioState)
-//   // useEffect(() => dispatch(loged()), [dispatch])
-
-//   return (
-//     <Route
-//       exact
-//       render={props =>
-//         true ? (
-//           <AuthLayout>
-//             <Component {...props} />
-//           </AuthLayout>
-//         ) : (
-//           <Redirect to={{ pathname: '/login', state: { from: props.location } }} />
-//         )
-//       }
-//     />
-//   )
-// }
+import Room from './pages/celebracao/sala/room'
 
 export default () => (
   <Router history={history}>
     <Switch>
-      <Route path='/' exact={true} component={Celebracao} />
+      <Route path='/' exact={true} component={Home} />
       <Route path='/home' exact={true} component={Home} />
-      {/* <Route path='/login' exact={true} component={login} /> */}
-      {/* <Route path='/registrar' exact={true} component={registrar} /> */}
 
-      {/* <PrivateRoute path='/' exact component={Celebracao} /> */}
-      <Route path='/celebracao' exact component={SalaEntrar} />
-      <Route path='/celebracao/criar' exact component={SalaCriar} />
-      <Route path='/celebracao/sala/:sala' exact component={SalaEntrar} />
+      <Route path='/cerimonial' exact component={SalaEntrar} />
+      <Route path='/cerimonial/criar' exact component={SalaCriar} />
+      <Route path='/cerimonial/sala/:sala' exact component={SalaEntrar} />
       <Route path='/sala/:sala' exact component={SalaConferencia} />
 
       <Route path='/sala' exact component={Sala} />
-      {/* <Redirect from='*' to='/login' /> */}
+      <Route path='/room' exact component={Room} />
+      {/* <Redirect from='*' to='/Home' /> */}
     </Switch>
   </Router>
 )
